@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="hidden sm:-my-px sm:ml-10 sm:flex h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -18,8 +18,39 @@
                 </div>
             </div>
 
+            <div class="flex items-center gap-3">
+                <label class="sm:hidden mr-60">
+                    <input class="toggle-checkbox" type="checkbox" @click="isDarkMode = ! isDarkMode">
+                    <div class="toggle-slot">
+                        <div class="sun-icon-wrapper">
+                            <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false" x-show="isDarkMode"></div>
+                        </div>
+
+                        <div class="toggle-button"></div>
+
+                        <div class="moon-icon-wrapper">
+                            <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false" x-show="! isDarkMode"></div>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
+            <div class="flex items-center gap-3">
+                <label class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <input class="toggle-checkbox" type="checkbox" @click="isDarkMode = ! isDarkMode">
+                    <div class="toggle-slot">
+                        <div class="sun-icon-wrapper">
+                            <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false" x-show="isDarkMode"></div>
+                        </div>
+
+                        <div class="toggle-button"></div>
+
+                        <div class="moon-icon-wrapper">
+                            <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false" x-show="! isDarkMode"></div>
+                        </div>
+                    </div>
+                </label>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">

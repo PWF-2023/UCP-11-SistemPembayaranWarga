@@ -1,5 +1,6 @@
 import './bootstrap';
 import '../css/auth.css';
+import '../css/switch.css';
 
 import Alpine from 'alpinejs';
 

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    x-data="{ isDarkMode: localStorage.getItem('dark') === 'true' }"
+    x-init="@watch('isDarkMode', val => localStorage.setItem('dark', val))"
+    x-bind:class="{ 'dark': isDarkMode }">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +32,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="px-4 sm:px-6 flex-1">
                 {{ $slot }}
             </main>
         </div>
