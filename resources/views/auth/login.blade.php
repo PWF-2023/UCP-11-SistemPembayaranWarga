@@ -2,10 +2,10 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" novalidate>
         @csrf
 
-            <p class="text-2xl text-center font-bold text-gray-600 dark:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Login</p>
+            <div class="text-2xl text-center font-bold text-gray-600 dark:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Login</div>
                 <!-- Email Address -->
                 <div>
                     <x-input-label for="email" :value="__('Email')" />
@@ -45,12 +45,12 @@
                     </x-primary-button>
                 </div>
             </form>
-            <div class="social-message">
-                <div class="line"></div>
+            <div class="flex items-center pt-5">
+                <div class=" h-px flex-1 bg-gray-500"></div>
                 <p class="font-bold mx-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Login with social accounts') }}</p>
-                <div class="line"></div>
+                <div class="h-px flex-1 bg-gray-500"></div>
             </div>
-            <div class="social-icons py-2">
+            <div class="flex justify-center py-2">
                 <button aria-label="Log in with Google" class="inline-flex items-center text-gray-900 dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-5 h-5 fill-current">
                         <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>

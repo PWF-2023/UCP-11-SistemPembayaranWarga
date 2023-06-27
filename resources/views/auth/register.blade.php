@@ -1,8 +1,8 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" novalidate>
         @csrf
 
-        <p class="text-2xl text-center font-bold text-gray-600 dark:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">Login</p>
+        <p class="text-2xl text-center font-bold text-gray-600 dark:text-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">{{ __('Register') }}</p>
 
         <!-- Name -->
         <div>

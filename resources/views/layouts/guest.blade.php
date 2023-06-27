@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    x-data="{ isDarkMode: localStorage.getItem('dark') === 'true' }"
-    x-init="@watch('isDarkMode', val => localStorage.setItem('dark', val))"
-    x-bind:class="{ 'dark': isDarkMode }">
+    x-data="{isDarkMode: localStorage.getItem('isDarkMode')|| localStorage.setItem('isDarkMode', 'system')}"
+    x-init="$watch('isDarkMode', val => localStorage.setItem('isDarkMode', val))"
+    x-bind:class="{'dark': isDarkMode === 'dark' || (isDarkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}">
 
     <head>
         <meta charset="utf-8">
@@ -21,14 +21,16 @@
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <x-modes />
+            <div class="fixed top-5 right-10 z-50">
+                <x-modes />
+            </div>
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden rounded-lg">
+            <div class="w-full sm:max-w-sm mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>

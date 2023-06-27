@@ -18,39 +18,9 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-3">
-                <label class="sm:hidden mr-60">
-                    <input class="toggle-checkbox" type="checkbox" @click="isDarkMode = ! isDarkMode">
-                    <div class="toggle-slot">
-                        <div class="sun-icon-wrapper">
-                            <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false" x-show="isDarkMode"></div>
-                        </div>
-
-                        <div class="toggle-button"></div>
-
-                        <div class="moon-icon-wrapper">
-                            <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false" x-show="! isDarkMode"></div>
-                        </div>
-                    </div>
-                </label>
-            </div>
-
             <!-- Settings Dropdown -->
             <div class="flex items-center gap-3">
-                <label class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <input class="toggle-checkbox" type="checkbox" @click="isDarkMode = ! isDarkMode">
-                    <div class="toggle-slot">
-                        <div class="sun-icon-wrapper">
-                            <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false" x-show="isDarkMode"></div>
-                        </div>
-
-                        <div class="toggle-button"></div>
-
-                        <div class="moon-icon-wrapper">
-                            <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false" x-show="! isDarkMode"></div>
-                        </div>
-                    </div>
-                </label>
+                <x-modes />
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -102,6 +72,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
