@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pembayaran', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->uuid('tagihan_id')->nullable();
+            $table->foreign('tagihan_id')->references('id')->on('tagihan')->onDelete('cascade');
+            $table->date('tgl_pembayaran');
+            $table->decimal('nominal', 10);
+            $table->boolean('status')->nullable()->default(false);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pembayaran');
     }
 };
