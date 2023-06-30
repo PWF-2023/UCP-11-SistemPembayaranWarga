@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tagihan', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('warga_id')->nullable();
-            $table->foreign('warga_id')->references('id')->on('warga')->onDelete('cascade');
-            $table->date('tgl_tagihan');
+            $table->foreignUuid(column: 'bill_id')->constrained(column: 'id')->on('bills')->onDelete('cascade');
+            $table->datetime('date_transaction');
             $table->decimal('nominal', 10);
+            $table->boolean('is_desc')->nullable()->default(false);
+            $table->boolean('is_status')->nullable()->default(false);
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tagihan');
+        Schema::dropIfExists('transactions');
     }
 };

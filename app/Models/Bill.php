@@ -6,22 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Tagihan extends Model
+class Bill extends Model
 {
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'tgl_tagihan',
+        'type',
+        'date_bill',
         'nominal',
+        'is_pay',
+        'is_late'
     ];
-
-    public function getIncrementing()
-    {
-        return false;
-    }
-
-    public function getKeyType()
-    {
-        return 'string';
-    }
 }

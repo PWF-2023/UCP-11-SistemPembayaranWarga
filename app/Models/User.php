@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Warga;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -23,17 +22,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'nik',
+        'address',
+        'fam_member'
     ];
 
-    public function getIncrementing()
-    {
-        return false;
-    }
-
-    public function getKeyType()
-    {
-        return 'string';
-    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -54,9 +47,4 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
-    public function warga()
-    {
-        return $this->hasOne(Warga::class);
-    }
 }
