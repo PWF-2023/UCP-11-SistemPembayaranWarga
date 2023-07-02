@@ -15,4 +15,9 @@ class Transaction extends Model
         'desc',
         'is_success'
     ];
+
+    public function bill()
+    {
+        return $this->hasMany(Bill::class);
+    }
 }

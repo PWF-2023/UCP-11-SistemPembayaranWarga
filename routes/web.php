@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -29,6 +30,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::resource('user',UserController::class);
     Route::resource('bill', BillController::class);
     Route::resource('transaction', TransactionController::class);
 });

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignUuid(column: 'user_id')->constrained(column: 'id')->on('users')->onDelete('cascade');
             $table->foreignUuid(column: 'bill_id')->constrained(column: 'id')->on('bills')->onDelete('cascade');
             $table->datetime('date_transaction');
             $table->decimal('nominal', 10);
-            $table->boolean('is_desc')->nullable()->default(false);
             $table->boolean('is_status')->nullable()->default(false);
             $table->timestamps();
         });

@@ -16,6 +16,10 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('tagihan')">
+                        {{ __('User') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('bill.index')" :active="request()->routeIs('tagihan')">
                         {{ __('Tagihan') }}
                     </x-nav-link>
