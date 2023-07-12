@@ -1,16 +1,28 @@
 <nav x-cloak x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
+<<<<<<< HEAD
     <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+=======
+    <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
+>>>>>>> 95ed721 (feat(web) : feat landingpage template)
         <div class="flex justify-between h-16">
             <div class="flex">
                 <div class="flex items-center border-b-2 border-indigo-500 shrink-0">
                     <a href="{{ route('home') }}" class="font-bold sm:hidden dark:text-gray-200">Si<span
+<<<<<<< HEAD
                             class="text-amber-500">PW</span></a>
+=======
+                            class="text-indigo-500">PW</span></a>
+>>>>>>> 95ed721 (feat(web) : feat landingpage template)
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden gap-4 sm:-my-px sm:flex">
                     <x-nav-link :href="route('home')" class="hidden font-bold md:flex dark:text-gray-200">
+<<<<<<< HEAD
                         Si<span class="text-amber-500">PW</span>
+=======
+                        Si<span class="text-indigo-500">PW</span>
+>>>>>>> 95ed721 (feat(web) : feat landingpage template)
                     </x-nav-link>
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
