@@ -16,15 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('tagihan')">
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('bill.index')" :active="request()->routeIs('tagihan')">
+                    <x-nav-link :href="route('bill.index')" :active="request()->routeIs('bill.index')">
                         {{ __('Tagihan') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('transaction.index')" :active="request()->routeIs('pembayaran')">
+                    <x-nav-link :href="route('transaction.index')" :active="request()->routeIs('transaction.index')">
                         {{ __('Pembayaran') }}
                     </x-nav-link>
 
