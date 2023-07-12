@@ -18,8 +18,16 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('/feature', function () {
+    return view('feature');
+})->name('feature');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
