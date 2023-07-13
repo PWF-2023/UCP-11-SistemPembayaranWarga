@@ -15,16 +15,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
-                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('tagihan')">
+                    @can('admin')
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('User') }}
                     </x-nav-link>
+                    @endcan
 
-                    <x-nav-link :href="route('bill.index')" :active="request()->routeIs('tagihan')">
+                    <x-nav-link :href="route('bill.index')" :active="request()->routeIs('bill.index')">
                         {{ __('Tagihan') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('transaction.index')" :active="request()->routeIs('pembayaran')">
+                    <x-nav-link :href="route('transaction.index')" :active="request()->routeIs('transaction.index')">
                         {{ __('Pembayaran') }}
                     </x-nav-link>
 
@@ -84,6 +85,17 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            @can('admin')
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('User') }}
+            </x-responsive-nav-link>
+            @endcan
+            <x-responsive-nav-link :href="route('bill.index')" :active="request()->routeIs('bill.index')">
+                {{ __('Tagihan') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('transaction.index')" :active="request()->routeIs('transaction.index')">
+                {{ __('Pembayaran') }}
             </x-responsive-nav-link>
         </div>
 

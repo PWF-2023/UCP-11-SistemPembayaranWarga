@@ -6,22 +6,6 @@
     </x-slot>
 
     <div class="w-full">
-        <div class="flex justify-between py-5">
-            <div class="flex-initial w-3/12 mx-auto">
-                <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                    <div class="font-bold p-5 text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        Data Warga
-                    </div>
-                </div>
-            </div>
-            <div class="flex-initial w-3/12 mx-auto">
-                <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                    <div class="font-bold p-5 text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        Rincian Pembayaran
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -63,6 +47,9 @@
                                         Nama Warga
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Nama Tagihan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Tanggal Tagihan
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -71,12 +58,21 @@
                                     <th scope="col" class="px-6 py-3">
                                         Keterangan
                                     </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Action
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <p></p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p></p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
                                         <p></p>
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
