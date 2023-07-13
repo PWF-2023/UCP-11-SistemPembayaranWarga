@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
@@ -9,14 +11,13 @@ class BillController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(User $user)
     {
         if ($user->id != 1) {
             $bills = Bill::where('user_id', auth()->user()->id)
             ->orderBy('is_pay', 'asc')
             ->orderBy('created_at', 'desc')
             ->get();
-        // dd($todos);
         } else {
             $bills = Bill::all();
         }
