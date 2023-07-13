@@ -43,6 +43,6 @@ class DatabaseSeeder extends Seeder
         );
         User::factory(100)->create();
         // Transaction::factory(100)->create();
-        // Bill::factory(100)->create();
+        Bill::factory(100)->create();
     }
 }
