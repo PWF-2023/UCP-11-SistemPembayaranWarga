@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('fam_member')->nullable();
             $table->string('contact')->nullable();
             $table->string('address', 255)->nullable();
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
