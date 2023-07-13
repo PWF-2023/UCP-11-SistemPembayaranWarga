@@ -34,6 +34,58 @@
 
 
                     <div class="relative overflow-x-auto">
+
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        No
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Tipe
+                                    </th>
+                                    <th scope="col" class="hidden px-6 py-3 md:block">
+                                        Panggal Tagihan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Nominal
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($bills as $bill)
+                                <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
+                                    <td scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        <p></p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $bill->type }}</p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $bill->date_bill }}</p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p>{{ $bill->nominal }}</p>
+                                    </td>
+                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
+                                        <p></p>
+                                    </td>
+
+                                </tr>
+                                @empty
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        Empty
+                                    </td>
+                                </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+
                         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
@@ -64,6 +116,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($status_bills as $status_bill)
                                 <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                     <td scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -91,8 +144,16 @@
                                         <p></p>
                                     </td>
                                 </tr>
+                                @empty
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                        Empty
+                                    </td>
+                                </tr>
+                                @endforelse
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
