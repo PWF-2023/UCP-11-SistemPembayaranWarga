@@ -1,16 +1,16 @@
 <nav x-cloak x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <div class="flex items-center border-b-2 border-indigo-500 shrink-0">
                     <a href="{{ route('home') }}" class="font-bold sm:hidden dark:text-gray-200">Si<span
-                            class="text-indigo-500">PW</span></a>
+                            class="text-amber-500">PW</span></a>
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden gap-4 sm:-my-px sm:flex">
                     <x-nav-link :href="route('home')" class="hidden font-bold md:flex dark:text-gray-200">
-                        Si<span class="text-indigo-500">PW</span>
+                        Si<span class="text-amber-500">PW</span>
                     </x-nav-link>
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Home') }}
@@ -24,15 +24,15 @@
                 </div>
             </div>
 
-            <div class="ml-60 mt-3">
+            {{-- <div class="mt-3">
                 <x-modes/>
-            </div>
+            </div> --}}
 
             <div class="flex">
-                <div class="hidden sm:flex sm:items-center sm:ml-2">
+                @guest
+                <div class="sm:flex h-10 mt-3 sm:ml-2 ">
                     <x-modes/>
                 </div>
-                @guest
                 <div class="hidden sm:flex sm:items-center sm:ml-2 gap-x-4">
                     @if (Route::has('login'))
                     <a href="{{ route('login') }}"
