@@ -11,7 +11,16 @@ class BillController extends Controller
      */
     public function index()
     {
-        return view('bill.index');
+        if ($user->id != 1) {
+            $bills = Bill::where('user_id', auth()->user()->id)
+            ->orderBy('is_pay', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        // dd($todos);
+        } else {
+            $bills = Bill::all();
+        }
+        return view('bill.index', compact('bills'));
     }
 
     /**
