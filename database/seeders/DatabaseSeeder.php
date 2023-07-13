@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
                 'remember_token' => Str::random(10),
             ]
         );
-        User::factory(100)->create();
+        User::factory(25)->create();
         // Transaction::factory(100)->create();
         Bill::factory(100)->create();
     }

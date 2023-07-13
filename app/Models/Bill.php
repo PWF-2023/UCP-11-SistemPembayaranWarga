@@ -15,14 +15,13 @@ class Bill extends Model
     protected $fillable = [
         'type',
         'date_bill',
-        'nominal',
-        'is_pay',
-        'is_late'
+        'nominal'
+
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
     public function transaction()
     {
