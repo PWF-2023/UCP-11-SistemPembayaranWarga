@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
-use App\Models\StatusBill;
 use App\Models\User;
+use App\Models\StatusBill;
 use Illuminate\Http\Request;
 
 class BillController extends Controller
@@ -21,17 +21,11 @@ class BillController extends Controller
             $status_bills = StatusBill::where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
-        // }
-        // if ($user->id != 1) {
-
-            // $bills = StatusBill::where('user_id', auth()->user()->id)
-            // ->orderBy('is_pay', 'asc')
-            // ->orderBy('date_bill', 'desc')
-            // ->get();
+        // dd($todos);
         // } else {
-        //$bills = Bill::all();
+            // $bills = Bill::all();
         // }
-        return view('bill.index', compact('status_bills', 'bills'));
+        return view('bill.index', compact('bills'));
     }
 
     /**
