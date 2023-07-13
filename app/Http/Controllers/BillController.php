@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bill;
+use App\Models\StatusBill;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,15 +14,24 @@ class BillController extends Controller
      */
     public function index(User $user)
     {
-        if ($user->id != 1) {
-            $bills = Bill::where('user_id', auth()->user()->id)
-            ->orderBy('is_pay', 'asc')
+        // if ($user->is_admin == true) {
+            $bills = Bill::all();
+
+        // }else {
+            $status_bills = StatusBill::where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
             ->get();
-        } else {
-            $bills = Bill::all();
-        }
-        return view('bill.index', compact('bills'));
+        // }
+        // if ($user->id != 1) {
+
+            // $bills = StatusBill::where('user_id', auth()->user()->id)
+            // ->orderBy('is_pay', 'asc')
+            // ->orderBy('date_bill', 'desc')
+            // ->get();
+        // } else {
+        //$bills = Bill::all();
+        // }
+        return view('bill.index', compact('status_bills', 'bills'));
     }
 
     /**
