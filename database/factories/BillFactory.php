@@ -18,12 +18,12 @@ class BillFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::inRandomOrder()->first()->id,
+            //'user_id' => User::inRandomOrder()->first()->id,
             'type' => ucwords(fake()->sentence()),
             'date_bill' => fake()->dateTimeBetween('-20 days', now()),
             'nominal' => fake()->numerify('#####'),
-            'is_pay' => rand(0, 1),
-            'is_late' => rand(0, 1)
+            //'is_pay' => rand(0, 1),
+            //'is_late' => rand(0, 1)
         ];
     }
 }
