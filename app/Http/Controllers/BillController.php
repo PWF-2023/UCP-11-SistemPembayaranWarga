@@ -89,7 +89,7 @@ class BillController extends Controller
     {
         $request->validate([
             'type' => 'required|max:255',
-            'date_bill' => 'date',
+            'date_bill' => 'string',
             'nominal' => 'integer'
         ]);
 

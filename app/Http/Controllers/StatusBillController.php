@@ -27,13 +27,12 @@ class StatusBillController extends Controller
     public function create(Bill $bill)
     {
         if ($bill->id !=1){
-            $users = User::where('id', '!=', '1')
+            $users = User::where('name', '!=', 'Admin')
             ->orderBy('name')
             ->get();
-
-            return view('bill.edit', compact('bill', 'users'));
+            return view('statusbill.create', compact('users', 'bill'));
         }else{
-            return redirect()->route('bill.index')->with('danger', 'Manage Bill Failed');
+            return redirect()->back()->with('danger', 'Edit Bill Failed');
         }
     }
 
@@ -71,7 +70,10 @@ class StatusBillController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // $users = User::where('id', '!=', '1')
+        //     ->orderBy('name')
+        //     ->get();
+        //     return view('statusbill.edit', compact('users'));
     }
 
     /**

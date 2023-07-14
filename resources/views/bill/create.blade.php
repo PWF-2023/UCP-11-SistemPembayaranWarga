@@ -20,9 +20,15 @@
                         </div>
                         <div class="mb-6">
                             <x-input-label for="date_bill" :value="__('Tanggal tenggang (YYYY-MM-DD)')" />
-                            <x-text-input id="date_bill" name="date_bill" type="date" class="form-control datepicker" required
-                                autofocus autocomplete="date_bill" :value="old('date_bill')" />
-                            <x-input-error class="mt-2" :messages="$errors->get('date_bill')" />
+                            <div class="relative max-w-sm">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                  </svg>
+                                </div>
+                                <input datepicker id="date_bill" name="date_bill" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
+                                autofocus autocomplete="date_bill" :value="old('date_bill')" datepicker-format="yyyy-mm-dd" placeholder="Select date">
+                              </div>
                         </div>
                         <div class="mb-6">
                             <x-input-label for="nominal" :value="__('Nominal')" />

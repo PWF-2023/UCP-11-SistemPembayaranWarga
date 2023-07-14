@@ -74,6 +74,16 @@
             </main>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="../path/to/flowbite/dist/datepicker.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
+
+        <script>
+            $(function(e){
+                $("#select_all_ids").click(function(){
+                    $('.checkbox_ids').prop('checked',$(this).prop('checked'));
+                });
+            });
+        </script>
 
     </body>
 </html>
