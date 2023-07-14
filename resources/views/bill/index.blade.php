@@ -63,16 +63,33 @@
                                         <p>{{ $bill->id }}</p>
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                        <p>{{ $bill->type }}</p>
+                                        <a href="{{ route('bill.edit', $bill) }}" class="hover:underline">{{ $bill->type }}</a>
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
                                         <p>{{ $bill->date_bill }}</p>
                                     </td>
                                     <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                        <p>{{ $bill->nominal }}</p>
+                                        <p>Rp. {{ $bill->nominal }}</p>
                                     </td>
-                                    <td class="px-6 py-4 font-medium text-gray-900 md:whitespace-nowrap dark:text-white">
-                                        <p></p>
+                                    <td class="px-6 py-4 ">
+                                        <div class="flex space-x-3">
+                                            <form action="{{ route('statusbill.create', $bill) }}" method="Post">
+                                                @csrf
+                                                @method('PATCH')
+                                                <button type="submit"
+                                                    class="text-blue-600 dark:text-blue-400 whitespace-nowrap">
+                                                    Manage Bill
+                                                </button>
+                                            </form>
+                                            <form action="{{ route('bill.destroy', $bill) }}" method="Post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit"
+                                                    class="text-red-600 dark:text-red-400 whitespace-nowrap">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
 
                                 </tr>
@@ -86,7 +103,7 @@
                             </tbody>
                         </table>
 
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        {{-- <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
@@ -152,7 +169,7 @@
                                 </tr>
                                 @endforelse
                             </tbody>
-                        </table>
+                        </table> --}}
 
                     </div>
                 </div>

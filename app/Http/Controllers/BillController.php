@@ -73,24 +73,45 @@ class BillController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Bill $bill)
     {
-        //
+        if ($bill->id !=1){
+            return view('bill.edit', compact('bill'));
+        }else{
+            return redirect()->route('bill.index')->with('danger', 'Edit Bill Failed');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Bill $bill)
     {
-        //
+        $request->validate([
+            'type' => 'required|max:255',
+            'date_bill' => 'date',
+            'nominal' => 'integer'
+        ]);
+
+        $bill ->update([
+            'type' => ucwords($request->type),
+            'date_bill' => $request->date_bill,
+            'nominal' => $request->nominal
+        ]);
+
+        return redirect()->route('bill.index')->with('success', 'Bill updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bill $bill)
     {
-        //
+        if ($bill->id != 1) {
+            $bill->delete();
+            return back()->with('success', 'Delete Bill successfully!');
+        } else {
+            return redirect()->route('bill.index')->with('danger', 'Delete Bill failed!');
+        }
     }
 }
