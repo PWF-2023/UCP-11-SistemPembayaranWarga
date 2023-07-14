@@ -39,15 +39,27 @@ class BillController extends Controller
      */
     public function create()
     {
-        //
+        return view('bill.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Bill $bill)
     {
-        //
+        $request->validate([
+            'type' => 'required|max:255',
+            'date_bill' => 'date',
+            'nominal' => 'integer'
+        ]);
+
+        $bill = Bill::create([
+            'type' => ucwords($request->type),
+            'date_bill' => $request->date_bill,
+            'nominal' => $request->nominal
+        ]);
+
+        return redirect()->route('bill.index')->with('success', 'Bill created successfully!');
     }
 
     /**

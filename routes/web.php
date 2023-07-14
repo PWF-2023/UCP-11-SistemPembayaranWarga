@@ -46,6 +46,7 @@ Route::middleware('auth', 'verified')->group(function () {
     });
 
     Route::resource('bill', BillController::class);
+    Route::get('/bill/create', [BillController::class, 'create'])->name('bill.create');
     Route::resource('transaction', TransactionController::class);
 });
 
