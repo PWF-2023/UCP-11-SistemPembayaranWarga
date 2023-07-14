@@ -20,13 +20,13 @@
                         </div>
                         <div class="mb-6">
                             <x-input-label for="date_bill" :value="__('Tanggal tenggang (YYYY-MM-DD)')" />
-                            <x-text-input id="date_bill" name="date_bill" type="text" class="form-control datepicker" required
+                            <x-text-input id="date_bill" name="date_bill" type="date" class="form-control datepicker" required
                                 autofocus autocomplete="date_bill" :value="old('date_bill')" />
                             <x-input-error class="mt-2" :messages="$errors->get('date_bill')" />
                         </div>
                         <div class="mb-6">
                             <x-input-label for="nominal" :value="__('Nominal')" />
-                            <x-text-input id="nominal" name="nominal" type="text" class="block w-full mt-1" required
+                            <x-text-input id="nominal" name="nominal" type="number" class="form-control w-64 mt-1" required
                                 autofocus autocomplete="nominal" :value="old('nominal')" />
                             <x-input-error class="mt-2" :messages="$errors->get('nominal')" />
                         </div>

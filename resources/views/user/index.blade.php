@@ -46,6 +46,9 @@
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    <input type="checkbox" name="" id="select_all_ids">
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     No
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -68,6 +71,10 @@
                         <tbody>
                             @forelse ($users as $index => $user)
                             <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <input type="checkbox" name="ids" class="checkbox_ids" id="" value="{{ $user->id }}">
+                                </td>
                                 <td scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <p>{{ $index +1 }}</p>
@@ -138,3 +145,10 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    $(function(e){
+        $("#select_all_ids").click(function(){
+            $('.checkbox_ids').prop('checked',$(this).prop('checked'));
+        });
+    });
+</script>
