@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bill;
+use App\Models\StatusBill;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StatusBillController extends Controller
@@ -11,23 +14,48 @@ class StatusBillController extends Controller
      */
     public function index()
     {
-        //
+        $statusbills = StatusBill::with('bill')->where('user_id', auth()->user()->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('statusbill.index', compact('statusbills'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Bill $bill)
     {
-        //
+        if ($bill->id !=1){
+            $users = User::where('id', '!=', '1')
+            ->orderBy('name')
+            ->get();
+
+            return view('bill.edit', compact('bill', 'users'));
+        }else{
+            return redirect()->route('bill.index')->with('danger', 'Manage Bill Failed');
+        }
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Bill $bill, User $users)
     {
-        //
+        $request->validate([
+            'checkall' => 'boolean',
+            'checkuser' => 'boolean'
+        ]);
+
+        $users = User::where('id' == $request->checkuser->id)->get();
+
+        foreach($users as $user);
+        $statusbills = StatusBill::create([
+            'user_id'=> $request->checkuser->id,
+            'bill_id'=> $bill->id,
+            'is_pay'=> false,
+            'is_late'=> false
+        ]);
     }
 
     /**

@@ -12,7 +12,7 @@ class BillController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user)
+    public function index()
     {
         // if ($user->is_admin == true) {
             $bills = Bill::all();
