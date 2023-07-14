@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             // $table->foreignUuid(column: 'user_id')->constrained(column: 'id')->on('users')->onDelete('cascade');
             $table->string('type', 255);
-            $table->datetime('date_bill');
+            $table->date('date_bill');
             $table->decimal('nominal', 10);
             $table->timestamps();
         });
