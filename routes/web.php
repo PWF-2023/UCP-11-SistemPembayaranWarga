@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StatusBillController;
 use App\Http\Controllers\TransactionController;
 
 /*
@@ -46,8 +47,10 @@ Route::middleware('auth', 'verified')->group(function () {
     });
 
     Route::resource('bill', BillController::class);
-    Route::get('/bill/create', [BillController::class, 'create'])->name('bill.create');
+    //Route::get('/bill/create', [BillController::class, 'create'])->name('bill.create');
     Route::resource('transaction', TransactionController::class);
+    Route::resource('statusbill', StatusBillController::class);
+
 });
 
 require __DIR__.'/auth.php';
