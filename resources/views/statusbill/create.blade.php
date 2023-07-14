@@ -126,7 +126,7 @@
                         </div>
                         <div class="flex items-center gap-4 mt-5">
                             <x-primary-button>{{ __('Save') }}</x-primary-button>
-                            <x-cancel-button href="" />
+                            <x-cancel-button href="{{ route('bill.index') }}" />
                         </div>
                     </form>
                 </div>
