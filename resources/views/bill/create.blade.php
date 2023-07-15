@@ -32,7 +32,7 @@
                         </div>
                         <div class="mb-6">
                             <x-input-label for="nominal" :value="__('Nominal')" />
-                            <x-text-input id="nominal" name="nominal" type="number" class="form-control w-64 mt-1" required
+                            <x-text-input id="nominal" name="nominal" type="number" class="form-control w-full mt-1" required
                                 autofocus autocomplete="nominal" :value="old('nominal')" />
                             <x-input-error class="mt-2" :messages="$errors->get('nominal')" />
                         </div>
