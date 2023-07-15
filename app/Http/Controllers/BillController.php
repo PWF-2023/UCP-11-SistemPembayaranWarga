@@ -37,9 +37,9 @@ class BillController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Bill $bill)
     {
-        return view('bill.create');
+        return view('bill.stepone');
     }
 
     /**
@@ -59,7 +59,16 @@ class BillController extends Controller
             'nominal' => $request->nominal
         ]);
 
-        return redirect()->route('bill.index')->with('success', 'Bill created successfully!');
+        return redirect()->route('bill.steptwo')->with('success', 'Bill updated successfully!');
+    }
+
+    public function stepTwo(Bill $bill)
+    {
+        $users = User::where('name', '!=', 'Admin')
+        ->orderBy('name')
+        ->get();
+        return view('bill.steptwo', compact('users', 'bill' ));
+        // dd($users);
     }
 
     /**
@@ -76,7 +85,10 @@ class BillController extends Controller
     public function edit(Bill $bill)
     {
         if ($bill->id !=1){
-            return view('bill.edit', compact('bill'));
+            $users = User::where('name', '!=', 'Admin')
+            ->orderBy('name')
+            ->get();
+            return view('bill.edit', compact('bill', 'users'));
         }else{
             return redirect()->route('bill.index')->with('danger', 'Edit Bill Failed');
         }

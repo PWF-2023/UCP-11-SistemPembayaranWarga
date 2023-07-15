@@ -13,7 +13,7 @@
                     <div class="p-6 text-xl text-gray-900 dark:text-gray-100">
                         <div class="flex items-center justify-between">
                             <div>
-                                <x-button href="{{ route('bill.create')}}" />
+                                <x-button href="{{ route('bill.stepone')}}" />
                             </div>
                             <div>
                                 @if (session('success'))
@@ -45,7 +45,7 @@
                                         Tipe
                                     </th>
                                     <th scope="col" class="hidden px-6 py-3 md:block">
-                                        Panggal Tagihan
+                                        Tanggal Tagihan
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Nominal
@@ -73,16 +73,16 @@
                                     </td>
                                     <td class="px-6 py-4 ">
                                         <div class="flex space-x-3">
-                                            {{-- <a href="{{ route('statusbill.create', $bill) }}"
+                                            <a href="{{ route('statusbill.edit', $bill) }}"
                                                 class="text-blue-600 dark:text-blue-400 whitespace-nowrap">
                                                 Manage Bill
-                                            </a> --}}
-                                            <form action="{{ route('statusbill.create', $bill) }}" >
+                                            </a>
+                                            {{-- <form action="{{ route('statusbill.create', $bill) }}" >
                                                 <button type="submit"
                                                     class="text-blue-600 dark:text-blue-400 whitespace-nowrap">
                                                     Manage Bill
                                                 </button>
-                                            </form>
+                                            </form> --}}
 
                                             <form action="{{ route('bill.destroy', $bill) }}" method="Post">
                                                 @csrf

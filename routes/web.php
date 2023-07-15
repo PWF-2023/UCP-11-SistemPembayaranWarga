@@ -46,8 +46,16 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::patch('/user/{user}/removeadmin', [UserController::class, 'removeadmin'])->name('user.removeadmin');
     });
 
-    Route::resource('bill', BillController::class);
-    //Route::get('/bill/create', [BillController::class, 'create'])->name('bill.create');
+    // Route::resource('bill', BillController::class);
+    Route::get('/bill', [BillController::class, 'index'])->name('bill.index');
+    Route::get('/bill/stepone', [BillController::class, 'create'])->name('bill.stepone');
+    Route::post('/bill', [BillController::class, 'store'])->name('bill.store');
+    Route::get('/bill/edit', [BillController::class, 'edit'])->name('bill.edit');
+    Route::patch('/bill', [BillController::class, 'update'])->name('bill.update');
+    Route::delete('/bill', [BillController::class, 'destroy'])->name('bill.destroy');
+    Route::get('/bill/steptwo', [BillController::class, 'stepTwo'])->name('bill.steptwo');
+
+
     Route::resource('transaction', TransactionController::class);
     Route::resource('statusbill', StatusBillController::class);
 
