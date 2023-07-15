@@ -73,10 +73,16 @@
                                     </td>
                                     <td class="px-6 py-4 ">
                                         <div class="flex space-x-3">
-                                            <a href="{{ route('statusbill.create', $bill) }}"
+                                            {{-- <a href="{{ route('statusbill.create', $bill) }}"
                                                 class="text-blue-600 dark:text-blue-400 whitespace-nowrap">
                                                 Manage Bill
-                                            </a>
+                                            </a> --}}
+                                            <form action="{{ route('statusbill.create', $bill) }}" >
+                                                <button type="submit"
+                                                    class="text-blue-600 dark:text-blue-400 whitespace-nowrap">
+                                                    Manage Bill
+                                                </button>
+                                            </form>
 
                                             <form action="{{ route('bill.destroy', $bill) }}" method="Post">
                                                 @csrf

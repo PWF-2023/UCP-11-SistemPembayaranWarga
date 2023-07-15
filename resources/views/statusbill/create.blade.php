@@ -9,14 +9,14 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form method="post" action="{{ route('statusbill.create', $bill)}}">
+                    <form method="post" action="{{ route('statusbill.store', $bill)}}">
                         @csrf
-                        @method('patch')
+                        @method('post')
                         <div class="mb-6">
                             <x-input-label for="type" :value="__('Type')" />
                             <x-text-input id="type" name="type" type="text" class="block w-full mt-1" :value="old('type', $bill->type)"
                                 autofocus autocomplete="type" disabled />
-                            <x-input-error class="mt-2" :messages="$errors->get('type')" />
+                            {{-- <x-input-error class="mt-2" :messages="$errors->get('type')" /> --}}
                         </div>
                         <div class="mb-6">
                             <x-input-label class="mb-2" for="date_bill" :value="__('Tanggal tenggang (YYYY-MM-DD)')" />
@@ -27,14 +27,14 @@
                                   </svg>
                                 </div>
                                 <input datepicker id="date_bill" name="date_bill" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required
-                                autofocus autocomplete="date_bill" :value="old('date_bill')" datepicker-format="yyyy-mm-dd" placeholder="Select date">
+                                autofocus autocomplete="date_bill" :value="old('date_bill', $bills->date_bill)" datepicker-format="yyyy-mm-dd" placeholder="Select date">
                               </div>
                         </div>
                         <div class="mb-6">
                             <x-input-label for="nominal" :value="__('Nominal')" />
                             <x-text-input id="nominal" name="nominal" type="text" class="block w-full mt-1" required
                                 autofocus autocomplete="nominal"  />
-                            <x-input-error class="mt-2" :messages="$errors->get('nominal')" :value="old('nominal', $bill->nominal)"/>
+                            {{-- <x-input-error class="mt-2" :messages="$errors->get('nominal')" :value="old('nominal', $bill->nominal)"/> --}}
                         </div>
 
                         <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
@@ -87,7 +87,7 @@
                                         <tr class="odd:bg-white odd:dark:bg-gray-800 even:bg-gray-50 even:dark:bg-gray-700">
                                             <td scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                <input type="checkbox" name="ids" class="checkbox_ids" id="" value="{{ $user->id }}">
+                                                <input type="checkbox" name="ids[]" class="checkbox_ids" value="{{ $user->id }}">
                                             </td>
                                             <td scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">

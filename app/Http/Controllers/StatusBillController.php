@@ -30,7 +30,11 @@ class StatusBillController extends Controller
             $users = User::where('name', '!=', 'Admin')
             ->orderBy('name')
             ->get();
-            return view('statusbill.create', compact('users', 'bill'));
+            $fbill = Bill::where('id', '==', $bill->id);
+            // $bltype = $bills->type;
+            // $bldate = $bills->date_bill;
+            // $blnom = $bills->nominal;
+            return view('statusbill.create', compact('fbill', 'users', 'bill' ));
         }else{
             return redirect()->back()->with('danger', 'Edit Bill Failed');
         }
@@ -46,15 +50,23 @@ class StatusBillController extends Controller
             'checkuser' => 'boolean'
         ]);
 
-        $users = User::where('id' == $request->checkuser->id)->get();
+        $users = User::where('id', '==', $request->input('ids'));
 
-        foreach($users as $user);
-        $statusbills = StatusBill::create([
-            'user_id'=> $request->checkuser->id,
-            'bill_id'=> $bill->id,
-            'is_pay'=> false,
-            'is_late'=> false
-        ]);
+        foreach($users as $user){
+            if ($user->id == $request->input('ids')) {
+                $statusbills = StatusBill::create([
+                    'user_id'=> $user->id,
+                    'bill_id'=> $bill->id,
+                    'is_pay'=> false,
+                    'is_late'=> false
+                ]);
+            } else {
+                return redirect()->route('bill.index')->with('danger', 'Bill managed Failed!');
+            }
+
+        }
+
+        return redirect()->route('bill.index')->with('success', 'Bill managed successfully!');
     }
 
     /**

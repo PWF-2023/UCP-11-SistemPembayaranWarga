@@ -9,6 +9,8 @@ class StatusBill extends Model
 {
     use HasFactory;
 
+    protected $table = 'status_bills';
+
     protected $fillable = [
         'user_id',
         'bill_id',
